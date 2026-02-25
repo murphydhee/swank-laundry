@@ -1,9 +1,8 @@
 <script setup>
-// Replace these with your actual social links
 const socialLinks = {
-  instagram: '#', // Add your Instagram URL
-  facebook: '#',  // Add your Facebook URL
-  whatsapp: '#',  // Add your WhatsApp URL (e.g. https://wa.me/1234567890)
+  instagram: 'https://www.instagram.com/swanklaundry?igsh=MTFwMGxzaHhleWt5Mg%3D%3D&utm_source=qr',
+  facebook: 'https://www.facebook.com/share/1K5v8jNCAn/?mibextid=wwXIfr',
+  whatsapp: 'https://wa.link/19dyhb',
 }
 </script>
 

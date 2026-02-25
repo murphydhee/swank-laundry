@@ -1,10 +1,43 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { gsap } from '../composables/useGsap'
 import { initAboutUsAnimations } from '../composables/useAnimations'
 
 const sectionRef = ref(null)
+const statRef = ref(null)
+const displayCount = ref(0)
 
-onMounted(() => initAboutUsAnimations(sectionRef))
+const stackImages = [
+  {
+    src: 'https://res.cloudinary.com/dep0qi07x/image/upload/f_auto/v1772024953/IMG_4083_fjpihi.heic',
+    alt: 'Folding laundry into basket',
+  },
+  {
+    src: 'https://res.cloudinary.com/dep0qi07x/image/upload/f_auto/v1772024938/IMG_4082_bx21ke.heic',
+    alt: 'Professional laundry service',
+  },
+]
+
+onMounted(() => {
+  initAboutUsAnimations(sectionRef)
+
+  // Count-up animation when stat box enters view
+  if (statRef.value) {
+    const countObj = { value: 0 }
+    gsap.to(countObj, {
+      value: 800,
+      duration: 2,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: statRef.value,
+        start: 'top 85%',
+      },
+      onUpdate: () => {
+        displayCount.value = Math.round(countObj.value)
+      },
+    })
+  }
+})
 </script>
 
 <template>
@@ -19,7 +52,7 @@ onMounted(() => initAboutUsAnimations(sectionRef))
           <p class="text-body-text mb-8 leading-relaxed">
             Ultrices venenatis diam dolor tortor. Leo tellus nunc hendrerit lacinia odio. Commodo facilisis enim nunc ut ullamcorper sociis non.
           </p>
-          <div class="about-us-stat bg-gray-100 rounded-2xl p-6 flex items-center gap-5">
+          <div ref="statRef" class="about-us-stat bg-gray-100 rounded-2xl p-6 flex items-center gap-5">
             <div class="shrink-0 w-14 h-14 rounded-xl bg-dark-text/10 flex items-center justify-center">
               <svg
                 class="w-7 h-7 text-dark-text"
@@ -32,41 +65,74 @@ onMounted(() => initAboutUsAnimations(sectionRef))
               </svg>
             </div>
             <div>
-              <div class="text-dark-text font-extrabold text-3xl sm:text-4xl">800+</div>
+              <div class="text-dark-text font-extrabold text-3xl sm:text-4xl">{{ displayCount }}+</div>
               <div class="text-body-text text-sm mt-1">Happy Customers per month</div>
             </div>
           </div>
         </div>
 
-        <!-- Center column: main image -->
+        <!-- Center column: main video -->
         <div class="lg:col-span-5 about-us-main-img">
           <div class="rounded-2xl overflow-hidden bg-gray-200 aspect-[4/5]">
-            <img
-              src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=600&q=80"
-              alt="Freshly folded laundry"
+            <video
+              src="https://res.cloudinary.com/dep0qi07x/video/upload/v1772024964/IMG_4018_nprz4d.mov"
               class="w-full h-full object-cover"
+              autoplay
+              muted
+              loop
+              playsinline
             />
           </div>
         </div>
 
-        <!-- Right column: two stacked images -->
-        <div class="lg:col-span-3 flex flex-col gap-6 about-us-stack">
-          <div class="rounded-2xl overflow-hidden bg-gray-200 aspect-[4/5]">
-            <img
-              src="https://images.unsplash.com/photo-1624726175512-19b9baf9fbd1?w=400&q=80"
-              alt="Folding laundry into basket"
-              class="w-full h-full object-cover"
-            />
+        <!-- Right column: two stacked images (desktop) / carousel (mobile & tablet) -->
+        <div class="lg:col-span-3 about-us-stack">
+          <!-- Mobile & tablet: horizontal carousel -->
+          <div class="lg:hidden overflow-hidden rounded-2xl">
+            <div class="about-us-carousel flex gap-4 overflow-x-auto snap-x snap-mandatory pb-2 -mx-1">
+              <div
+                v-for="(img, i) in stackImages"
+                :key="i"
+                class="flex-shrink-0 w-[85vw] sm:w-[70vw] max-w-md snap-center"
+              >
+                <div class="rounded-2xl overflow-hidden bg-gray-200 aspect-[4/5]">
+                  <img
+                    :src="img.src"
+                    :alt="img.alt"
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="rounded-2xl overflow-hidden bg-gray-200 aspect-[4/5]">
-            <img
-              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80"
-              alt="Professional laundry service"
-              class="w-full h-full object-cover"
-            />
+          <!-- Desktop: stacked layout -->
+          <div class="hidden lg:flex flex-col gap-6">
+            <div
+              v-for="(img, i) in stackImages"
+              :key="i"
+              class="rounded-2xl overflow-hidden bg-gray-200 aspect-[4/5]"
+            >
+              <img
+                :src="img.src"
+                :alt="img.alt"
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+.about-us-carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.about-us-carousel::-webkit-scrollbar {
+  display: none;
+}
+</style>

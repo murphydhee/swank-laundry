@@ -15,9 +15,14 @@ onMounted(() => initTiredAnimations(sectionRef))
           class="absolute inset-0 bg-light-blue-bg -z-10"
           style="border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;"
         />
-        <div class="bg-primary-teal/20 rounded-2xl min-h-[400px] flex items-center justify-center text-8xl">
-          🧺
-        </div>
+        <video
+          class="w-full rounded-2xl min-h-[400px] object-cover"
+          src="https://res.cloudinary.com/dep0qi07x/video/upload/v1772024934/IMG_4026_xyqicf.mov"
+          autoplay
+          muted
+          loop
+          playsinline
+        />
       </div>
       <div class="tired-content flex-1 order-1 md:order-2">
         <h2 class="text-primary-teal font-extrabold text-3xl md:text-4xl mb-6">
