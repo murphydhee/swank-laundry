@@ -23,16 +23,12 @@ onMounted(() => initHeroAnimations())
       </p>
       <div class="flex flex-wrap gap-4">
         <a
-          href="#"
+          href="https://wa.link/6vpcdj"
+          target="_blank"
+          rel="noopener noreferrer"
           class="px-8 py-3 rounded-pill bg-secondary-orange text-white font-bold hover:scale-105 transition-transform"
         >
-          Get Started
-        </a>
-        <a
-          href="#services"
-          class="px-8 py-3 rounded-pill bg-primary-teal text-white font-bold hover:scale-105 transition-transform"
-        >
-          Learn More
+          Schedule a pick up
         </a>
       </div>
     </div>

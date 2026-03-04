@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { RouterLink } from 'vue-router'
 import { initNavBarAnimations } from '../composables/useAnimations'
 
 const navRef = ref(null)
@@ -26,16 +27,13 @@ onMounted(() => {
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16 md:h-20">
-        <a href="#home" class="flex items-center">
+        <RouterLink to="/" class="flex items-center">
           <img src="/logo.png" alt="Swank Laundry" class="h-10 md:h-12 w-auto" />
-        </a>
+        </RouterLink>
         <div class="hidden md:flex items-center gap-8">
-          <a href="#home" class="text-dark-text hover:text-primary-teal font-semibold transition-colors">Home</a>
-          <a href="#about" class="text-dark-text hover:text-primary-teal font-semibold transition-colors">About</a>
-          <a href="#" class="text-dark-text hover:text-primary-teal font-semibold transition-colors flex items-center gap-1">
-            Pages
-            <span class="text-sm">▾</span>
-          </a>
+          <RouterLink to="/" class="text-dark-text hover:text-primary-teal font-semibold transition-colors">Home</RouterLink>
+          <RouterLink :to="{ path: '/', hash: '#about' }" class="text-dark-text hover:text-primary-teal font-semibold transition-colors">About</RouterLink>
+          <RouterLink to="/pricing" class="text-dark-text hover:text-primary-teal font-semibold transition-colors">Pricing</RouterLink>
           <a
             href="#newsletter"
             class="px-6 py-2 rounded-pill border-2 border-secondary-orange text-primary-teal font-semibold hover:bg-secondary-orange hover:text-white transition-all hover:scale-105"
@@ -66,9 +64,9 @@ onMounted(() => {
       leave-to-class="opacity-0 -translate-y-2"
     >
       <div v-show="menuOpen" class="md:hidden bg-white border-t shadow-lg">
-        <a href="#home" @click="closeMenu" class="block px-4 py-3 text-dark-text hover:bg-light-blue-bg">Home</a>
-        <a href="#about" @click="closeMenu" class="block px-4 py-3 text-dark-text hover:bg-light-blue-bg">About</a>
-        <a href="#" @click="closeMenu" class="block px-4 py-3 text-dark-text hover:bg-light-blue-bg">Pages</a>
+        <RouterLink to="/" @click="closeMenu" class="block px-4 py-3 text-dark-text hover:bg-light-blue-bg">Home</RouterLink>
+        <RouterLink :to="{ path: '/', hash: '#about' }" @click="closeMenu" class="block px-4 py-3 text-dark-text hover:bg-light-blue-bg">About</RouterLink>
+        <RouterLink to="/pricing" @click="closeMenu" class="block px-4 py-3 text-dark-text hover:bg-light-blue-bg">Pricing</RouterLink>
         <a href="#newsletter" @click="closeMenu" class="block px-4 py-3 text-dark-text hover:bg-light-blue-bg">Contact</a>
       </div>
     </transition>
