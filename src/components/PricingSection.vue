@@ -26,8 +26,8 @@ const specialTeaser = specialItemsPricing.slice(0, 4)
               <thead>
                 <tr class="border-b border-gray-200 bg-gray-50/80">
                   <th class="px-4 py-3 text-dark-text font-semibold">Item</th>
-                  <th class="px-4 py-3 text-dark-text font-semibold text-right">Express (₦)</th>
                   <th class="px-4 py-3 text-dark-text font-semibold text-right">Standard (₦)</th>
+                  <th class="px-4 py-3 text-dark-text font-semibold text-right">Express (₦)</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,8 +53,9 @@ const specialTeaser = specialItemsPricing.slice(0, 4)
               <thead>
                 <tr class="border-b border-gray-200 bg-gray-50/80">
                   <th class="px-4 py-3 text-dark-text font-semibold">Item</th>
-                  <th class="px-4 py-3 text-dark-text font-semibold text-right">Express (₦)</th>
                   <th class="px-4 py-3 text-dark-text font-semibold text-right">Standard (₦)</th>
+                  <th class="px-4 py-3 text-dark-text font-semibold text-right">Express (₦)</th>
+
                 </tr>
               </thead>
               <tbody>
