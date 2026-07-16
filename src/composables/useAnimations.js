@@ -5,11 +5,95 @@ export function initNavBarAnimations(navRef) {
   gsap.from(navRef.value, { y: -80, opacity: 0, duration: 0.6, ease: 'power2.out' })
 }
 
-export function initHeroAnimations() {
-  gsap.from('.hero-left', { x: -100, opacity: 0, duration: 1, ease: 'power3.out' })
-  gsap.from('.hero-right', { x: 100, opacity: 0, duration: 1, delay: 0.2, ease: 'power3.out' })
-  gsap.from('.badge', { y: 30, opacity: 0, stagger: 0.2, delay: 0.8, ease: 'power2.out' })
-  gsap.from('.dot-grid', { scale: 0, opacity: 0, duration: 0.8, delay: 0.3, ease: 'power2.out' })
+export function initHeroAnimations(sectionRef) {
+  const scope = sectionRef?.value
+  if (!scope) return
+
+  const fromTo = (el, fromVars, toVars) => {
+    if (!el) return
+    gsap.fromTo(el, fromVars, toVars)
+  }
+
+  fromTo(
+    scope.querySelector('.hero-phone'),
+    { y: 16, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.55, ease: 'power2.out' },
+  )
+  fromTo(
+    scope.querySelector('.hero-title'),
+    { y: 28, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.7, delay: 0.08, ease: 'power3.out' },
+  )
+  fromTo(
+    scope.querySelector('.hero-subtitle'),
+    { y: 20, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.6, delay: 0.18, ease: 'power2.out' },
+  )
+  fromTo(
+    scope.querySelector('.hero-cta'),
+    { y: 16, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.55, delay: 0.28, ease: 'power2.out', clearProps: 'transform' },
+  )
+  fromTo(
+    scope.querySelector('.hero-carousel'),
+    { y: 36, autoAlpha: 0 },
+    { y: 0, autoAlpha: 1, duration: 0.8, delay: 0.35, ease: 'power2.out' },
+  )
+}
+
+export function initWhyChooseUsAnimations(sectionRef) {
+  const scope = sectionRef?.value
+  if (!scope) return
+
+  gsap.fromTo(
+    scope.querySelector('.why-title'),
+    { y: 36, autoAlpha: 0 },
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.7,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: scope, start: 'top 80%' },
+    },
+  )
+  gsap.fromTo(
+    scope.querySelector('.why-desc'),
+    { y: 28, autoAlpha: 0 },
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.65,
+      delay: 0.1,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: scope, start: 'top 80%' },
+    },
+  )
+  gsap.fromTo(
+    scope.querySelector('.why-cta'),
+    { y: 20, autoAlpha: 0 },
+    {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.55,
+      delay: 0.2,
+      ease: 'power2.out',
+      clearProps: 'transform',
+      scrollTrigger: { trigger: scope, start: 'top 80%' },
+    },
+  )
+  gsap.fromTo(
+    scope.querySelectorAll('.why-item'),
+    { x: 28, autoAlpha: 0 },
+    {
+      x: 0,
+      autoAlpha: 1,
+      duration: 0.5,
+      stagger: 0.07,
+      delay: 0.15,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: scope, start: 'top 75%' },
+    },
+  )
 }
 
 export function initServicesAnimations(sectionRef) {

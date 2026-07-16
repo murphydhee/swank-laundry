@@ -1,6 +1,7 @@
 <script setup>
 import NavBar from '../components/NavBar.vue'
 import HeroSection from '../components/HeroSection.vue'
+import WhyChooseUsSection from '../components/WhyChooseUsSection.vue'
 import ServicesSection from '../components/ServicesSection.vue'
 import TiredSection from '../components/TiredSection.vue'
 import PricingSection from '../components/PricingSection.vue'
@@ -18,6 +19,7 @@ import ScheduleModal from '../components/ScheduleModal.vue'
     <ScheduleModal />
     <NavBar />
     <HeroSection id="home" />
+    <WhyChooseUsSection />
     <AboutUsSection id="about" />
     <ServicesSection id="services" />
     <TiredSection />
