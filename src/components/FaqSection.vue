@@ -1,24 +1,12 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { RouterLink } from 'vue-router'
 import { initFaqAnimations } from '../composables/useAnimations'
+import { faqs } from '../data/faqs.js'
 
 const sectionRef = ref(null)
 const openIndex = ref(0)
-
-const faqs = [
-  {
-    question: 'How do I schedule a laundry pickup?',
-    answer: 'Simply visit our website or give us a call. Choose your preferred date and time, and we\'ll come to your door to collect your laundry. You can also set up recurring pickups for added convenience.',
-  },
-  {
-    question: 'How to change my subscription plan?',
-    answer: 'Log into your account and go to the Subscription section. From there, you can upgrade, downgrade, or pause your plan at any time. Changes take effect at the start of your next billing cycle.',
-  },
-  {
-    question: 'What payment methods do you accept?',
-    answer: 'We accept all major credit cards, debit cards, and digital wallets. You can also pay via bank transfer for larger orders. All payments are secure and encrypted.',
-  },
-]
+const previewFaqs = faqs.slice(0, 3)
 
 onMounted(() => initFaqAnimations(sectionRef))
 </script>
@@ -32,14 +20,15 @@ onMounted(() => initFaqAnimations(sectionRef))
         </h2>
         <div class="space-y-4">
           <div
-            v-for="(faq, i) in faqs"
+            v-for="(faq, i) in previewFaqs"
             :key="i"
             class="faq-item"
           >
             <button
-              @click="openIndex = openIndex === i ? -1 : i"
+              type="button"
               class="w-full text-left px-6 py-4 rounded-pill font-semibold text-white flex items-center justify-between transition-colors"
               :class="openIndex === i ? 'bg-secondary-orange' : 'bg-primary-teal'"
+              @click="openIndex = openIndex === i ? -1 : i"
             >
               <span>{{ faq.question }}</span>
               <span class="text-xl">{{ openIndex === i ? '↑' : '↓' }}</span>
@@ -53,14 +42,25 @@ onMounted(() => initFaqAnimations(sectionRef))
             </transition>
           </div>
         </div>
+        <RouterLink
+          to="/faq"
+          class="inline-flex mt-8 text-primary-teal font-bold hover:underline"
+        >
+          View all FAQs →
+        </RouterLink>
       </div>
       <div class="faq-image flex-1 relative">
         <div
           class="absolute inset-0 bg-primary-teal/20 -z-10"
           style="border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;"
         />
-        <div class="bg-primary-teal/30 rounded-2xl min-h-[350px] flex items-center justify-center text-8xl">
-          🧼
+        <div class="rounded-2xl overflow-hidden min-h-[350px] bg-gray-200">
+          <img
+            src="https://res.cloudinary.com/dep0qi07x/image/upload/f_auto/v1772024938/IMG_4082_bx21ke.heic"
+            alt="Swank Laundry"
+            class="w-full h-full min-h-[350px] object-cover"
+            loading="lazy"
+          />
         </div>
       </div>
     </div>

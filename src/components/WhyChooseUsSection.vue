@@ -52,12 +52,12 @@ onUnmounted(() => {
           Elevating your laundry experience with reliable pickup, careful cleaning, and delivery across Uyo.
           Discover convenience that fits your week — including free pickups on Saturday.
         </p>
-        <a
-          href="#newsletter"
+        <RouterLink
+          to="/contact"
           class="why-cta inline-block px-8 py-3.5 rounded-xl bg-[#FFD966] text-dark-text font-bold text-base hover:brightness-95 hover:scale-[1.02] transition-all"
         >
           Contact Us
-        </a>
+        </RouterLink>
       </div>
 
       <!-- Right: two-column checklist -->

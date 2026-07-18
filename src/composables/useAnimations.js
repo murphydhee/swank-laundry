@@ -97,11 +97,22 @@ export function initWhyChooseUsAnimations(sectionRef) {
 }
 
 export function initServicesAnimations(sectionRef) {
-  if (!sectionRef?.value) return
-  gsap.from('.service-card', {
-    scrollTrigger: { trigger: sectionRef.value, start: 'top 80%' },
-    y: 60, opacity: 0, stagger: 0.15, duration: 0.7, ease: 'power2.out',
-  })
+  const scope = sectionRef?.value
+  if (!scope) return
+
+  gsap.fromTo(
+    scope.querySelectorAll('.service-item'),
+    { y: 36, autoAlpha: 0, scale: 0.92 },
+    {
+      y: 0,
+      autoAlpha: 1,
+      scale: 1,
+      duration: 0.55,
+      stagger: 0.08,
+      ease: 'power2.out',
+      scrollTrigger: { trigger: scope, start: 'top 80%' },
+    },
+  )
 }
 
 export function initTiredAnimations(sectionRef) {

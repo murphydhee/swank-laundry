@@ -6,7 +6,7 @@ import ServicesSection from '../components/ServicesSection.vue'
 import TiredSection from '../components/TiredSection.vue'
 import PricingSection from '../components/PricingSection.vue'
 import AboutUsSection from '../components/AboutUsSection.vue'
-import BannerSection from '../components/BannerSection.vue'
+import TestimonialsSection from '../components/TestimonialsSection.vue'
 import NofadingSection from '../components/NofadingSection.vue'
 import FaqSection from '../components/FaqSection.vue'
 import NewsletterSection from '../components/NewsletterSection.vue'
@@ -15,7 +15,7 @@ import ScheduleModal from '../components/ScheduleModal.vue'
 </script>
 
 <template>
-  <div>
+  <div class="overflow-x-hidden">
     <ScheduleModal />
     <NavBar />
     <HeroSection id="home" />
@@ -24,7 +24,7 @@ import ScheduleModal from '../components/ScheduleModal.vue'
     <ServicesSection id="services" />
     <TiredSection />
     <PricingSection />
-    <BannerSection />
+    <TestimonialsSection />
     <NofadingSection />
     <FaqSection id="faq" />
     <NewsletterSection id="newsletter" />

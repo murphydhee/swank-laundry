@@ -50,7 +50,7 @@ onMounted(() => {
             About us beyond your expectations
           </h2>
           <p class="text-body-text mb-8 leading-relaxed">
-            Ultrices venenatis diam dolor tortor. Leo tellus nunc hendrerit lacinia odio. Commodo facilisis enim nunc ut ullamcorper sociis non.
+            Based in Ewet Housing Estate, Uyo, Swank Laundry brings careful cleaning, free Saturday pickups, and free delivery to your door — so fresh clothes fit your schedule, not the other way around.
           </p>
           <div ref="statRef" class="about-us-stat bg-gray-100 rounded-2xl p-6 flex items-center gap-5">
             <div class="shrink-0 w-14 h-14 rounded-xl bg-dark-text/10 flex items-center justify-center">

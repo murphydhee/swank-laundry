@@ -13,10 +13,10 @@ const closeMenu = () => { menuOpen.value = false }
 
 const navLinks = [
   { label: 'Pricing', to: '/pricing' },
-  { label: 'Services', to: { path: '/', hash: '#services' } },
-  { label: 'About', to: { path: '/', hash: '#about' } },
-  { label: 'FAQs', to: { path: '/', hash: '#faq' } },
-  { label: 'Contact', to: { path: '/', hash: '#newsletter' } },
+  { label: 'Services', to: '/services' },
+  { label: 'About', to: '/about' },
+  { label: 'FAQs', to: '/faq' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 function onScroll() {
