@@ -31,7 +31,7 @@ export const services = [
   },
   {
     id: 'sewing',
-    label: 'Cloth Sewing',
+    label: 'Alternation',
     description:
       'Simple repairs and alterations — hems, buttons, tears — so clothes last longer.',
   },

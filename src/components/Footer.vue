@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 
 const storeInfo = {
   address: '5 Graceland School Road, Ewet Housing Estate, Uyo',
-  hours: 'Open Daily 09:00 AM – 07:00 PM',
+  hours: 'Open Daily Mon - Sat 09:00 AM – 07:00 PM',
   phone: '+234 814 341 7479',
   phoneTel: 'tel:+2348143417479',
   instagram: 'https://www.instagram.com/swanklaundry?igsh=MTFwMGxzaHhleWt5Mg%3D%3D&utm_source=qr',
