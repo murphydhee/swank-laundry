@@ -4,6 +4,7 @@ import HeroSection from '../components/HeroSection.vue'
 import WhyChooseUsSection from '../components/WhyChooseUsSection.vue'
 import ServicesSection from '../components/ServicesSection.vue'
 import TiredSection from '../components/TiredSection.vue'
+import SubscriptionSection from '../components/SubscriptionSection.vue'
 import PricingSection from '../components/PricingSection.vue'
 import AboutUsSection from '../components/AboutUsSection.vue'
 import TestimonialsSection from '../components/TestimonialsSection.vue'
@@ -24,6 +25,7 @@ import ScheduleModal from '../components/ScheduleModal.vue'
     <ServicesSection id="services" />
     <TiredSection />
     <PricingSection />
+    <SubscriptionSection />
     <TestimonialsSection />
     <NofadingSection />
     <FaqSection id="faq" />

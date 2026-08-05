@@ -31,6 +31,11 @@ const routes = [
     name: 'Contact',
     component: () => import('../views/ContactView.vue'),
   },
+  {
+    path: '/subscription',
+    name: 'Subscription',
+    component: () => import('../views/SubscriptionView.vue'),
+  },
 ]
 
 const router = createRouter({

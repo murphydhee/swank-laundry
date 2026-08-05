@@ -13,6 +13,7 @@ const closeMenu = () => { menuOpen.value = false }
 
 const navLinks = [
   { label: 'Pricing', to: '/pricing' },
+  { label: 'Subscriptions', to: '/subscription' },
   { label: 'Services', to: '/services' },
   { label: 'About', to: '/about' },
   { label: 'FAQs', to: '/faq' },
